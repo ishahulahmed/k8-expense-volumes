@@ -46,4 +46,18 @@ spec:
       - name: mysql
         persistentVolumeClaim:
           claimName: mysql
-          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  clusterIp: None # this is called headless service
+  selector:
+    component: mysql
+    environment: expense
+    tier: db
+  ports:
+  - protocol: TCP
+    port: 80 # service-port
+    targetPort: 80 # target-port
