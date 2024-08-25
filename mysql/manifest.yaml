@@ -55,7 +55,7 @@ metadata:
   name: mysql
   namespace: expense
 spec:
-  clusterIp: None # this is called headless service
+  clusterIP: None # this is called headless service
   selector:
     component: mysql
     environment: expense
